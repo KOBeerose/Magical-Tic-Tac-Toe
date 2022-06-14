@@ -49,6 +49,13 @@ else:
 time.sleep(2.0)
 
 # keep looping
+def x_pos(x):
+    if (int(x) in range(170,270)):
+        return 0
+    elif (int(x) in range(280,380)):
+        return 1
+    elif (int(x) in range(400,500)):
+        return 2
 
 while True:
 
@@ -103,7 +110,17 @@ while True:
         center = (int(M['m10'] / M['m00']), int(M['m01'] / M['m00']))
         print("X= "+str(x)+"Y= "+str(y),"radius= "+str(radius))
         # only proceed if the radius meets a minimum size
+#         25
+# 220,160 |  330,160 |  450,160
+# 220,230 |  330,230 | 450,230
+# 220,310	|  330,310 |    470,310
 
+
+
+        if radius in range(10, 26):
+            if  (int(y) in range(120,190)):
+                
+            
         if radius > 10:
 
             # draw the circle and centroid on the frame,
