@@ -108,7 +108,7 @@ while True:
         ((x, y), radius) = cv2.minEnclosingCircle(c)
         M = cv2.moments(c)
         center = (int(M['m10'] / M['m00']), int(M['m01'] / M['m00']))
-        print("X= "+str(x)+"Y= "+str(y),"radius= "+str(radius))
+        print("X= "+str(int(x))+"   Y= "+str(int(y))+"  radius= "+str(int(radius)))
         # only proceed if the radius meets a minimum size
 #         25
 # 220,160 |  330,160 |  450,160
