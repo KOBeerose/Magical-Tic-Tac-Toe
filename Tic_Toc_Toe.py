@@ -18,15 +18,16 @@ options.add_experimental_option("detach", True)
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
 
 driver.get("https://playtictactoe.org/")
-
 lista = ["square top left" ,"square top" ,"square top right" ,"square left" ,"square" ,"square right" ,"square bottom left" ,"square bottom" ,"square bottom right" ]
+
+
 # time.sleep(1)
 # elem = driver.find_element(By.XPATH,"//div[@class='square top left']")
 # elem.click()
-time.sleep(1)
+# time.sleep(1)
 
-selected = lista[index]
-xpath = "//div[@class='"+selected+"']"
-elem = driver.find_element(By.XPATH,xpath)
-elem.click()
+# selected = lista[index]
+# xpath = "//div[@class='"+selected+"']"
+# elem = driver.find_element(By.XPATH,xpath)
+# elem.click()
 

@@ -9,6 +9,8 @@ import argparse
 import cv2
 import imutils
 import time
+from Tic_Toc_Toe import *
+
 
 # construct the argument parse and parse the arguments
 
@@ -120,7 +122,10 @@ while True:
         if radius in range(10, 26):
             if  (int(y) in range(120,190)):
                 
-            
+                selected = lista[x_pos(x)*3+0]
+                xpath = "//div[@class='"+selected+"']"
+                elem = driver.find_element(By.XPATH,xpath)
+                elem.click()
         if radius > 10:
 
             # draw the circle and centroid on the frame,
