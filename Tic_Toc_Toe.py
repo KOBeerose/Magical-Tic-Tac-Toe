@@ -20,6 +20,9 @@ driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), opti
 driver.get("https://playtictactoe.org/")
 lista = ["square top left" ,"square top" ,"square top right" ,"square left" ,"square" ,"square right" ,"square bottom left" ,"square bottom" ,"square bottom right" ]
 
+# time.sleep(1)
+# button = driver.find_element(By.CLASS_NAME, "scores")
+# button.click()
 
 # time.sleep(1)
 # elem = driver.find_element(By.XPATH,"//div[@class='square top left']")

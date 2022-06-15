@@ -13,6 +13,7 @@ from Tic_Toc_Toe import *
 
 
 # construct the argument parse and parse the arguments
+tic=0
 
 ap = argparse.ArgumentParser()
 ap.add_argument('-v', '--video',
@@ -51,14 +52,20 @@ else:
 time.sleep(2.0)
 
 # keep looping
-def x_pos(x):
+def x_pos_org(x):
     if (int(x) in range(170,270)):
         return 0
     elif (int(x) in range(280,380)):
         return 1
     elif (int(x) in range(400,500)):
         return 2
-
+def x_pos(x):
+    if (int(x) in range(140,250)):
+        return 0
+    elif (int(x) in range(260,380)):
+        return 1
+    elif (int(x) in range(390,530)):
+        return 2
 while True:
 
     # grab the current frame
@@ -118,14 +125,26 @@ while True:
 # 220,310	|  330,310 |    470,310
 
 
-
-        if radius in range(10, 26):
-            if  (int(y) in range(120,190)):
+        selected = None
+        clicked=[]
+        try:
+            if int(radius) in range(10, 22):
+                if  (int(y) in range(90,170)) and (x_pos(x) in range(3)):
+                    selected = lista[x_pos(x)]
+                elif (int(y) in range(180,260)) and (x_pos(x) in range(3)):
+                    selected = lista[x_pos(x)+3]
+                elif (int(y) in range(270,350)) and (x_pos(x) in range(3)) :
+                    selected = lista[x_pos(x)+6]
+                if selected and (time.perf_counter() - tic>3):
+                    print(time.perf_counter() - tic)
+                    clicked.append(selected)
+                    xpath = "//div[@class='"+selected+"']"
+                    elem = driver.find_element(By.XPATH,xpath)
+                    elem.click()
+                    tic = time.perf_counter()
+        except:
+            continue
                 
-                selected = lista[x_pos(x)*3+0]
-                xpath = "//div[@class='"+selected+"']"
-                elem = driver.find_element(By.XPATH,xpath)
-                elem.click()
         if radius > 10:
 
             # draw the circle and centroid on the frame,
